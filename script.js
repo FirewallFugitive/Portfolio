@@ -19,6 +19,6 @@ button.addEventListener('click',function(){
     document.getElementById("tasksDiv").appendChild(p)
 })
 btn2.addEventListener('click',function(){
-    console.log(tasks)
+    console.log(...tasks)
 })
 
