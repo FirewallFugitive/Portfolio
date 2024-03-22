@@ -37,11 +37,11 @@ let Duration = (h,m) => {
 }
 
 function totalDuration(){
-    let total = 0;
-    for(let i = 0; i < tasks.length; i++){
+    let total;
+    for(let i=0;i<tasks.length;i++){
         let time = tasks[i].duration; 
         const timeArray = time.split(":");
-        total += Duration(parseInt(timeArray[0]), parseInt(timeArray[1]));
+        total += Duration(parseInt(timeArray[0]),parseInt(timeArray[1]));
     }
     console.log(total);
 }
