@@ -7,11 +7,25 @@
 </head>
 <body>
     <h1>Tasklist</h1>
-    <label id="tasklbl">task to add:</label>
-    <input type="text" name="task" id="taskInput">
-    <input type="text" name="cat" id="catInput">
-    <button id="taskbtn">Add task</button>
-    <button id="btn2">console</button>
+    <form id="taskForm" onsubmit="validateForm(); return false">
+        <label id="namelbl">task name:</label>
+        <input type="text" name="task" id="taskInput">
+        <br>
+        <input type="radio" id="personalRadio" name="taskType" value="personal">
+        <label for="personal">Personal</label>
+        <input type="radio" id="workRadio" name="taskType" value="work">
+        <label for="work">Work</label>
+        <br>
+        <label id="durationlbl">task duration:</label>
+        <br>
+        <label id="hourlbl">hour(s):</label>
+        <input type="number" id="hourInput" min="0">
+        <label id="minlbl">minute(s):</label>
+        <input type="number" id="minInput" min="0" max="59">
+        <br>
+        <input type="submit" value="Submit">
+        <button id="btn2">console</button>
+    </form>
     <div id="tasksDiv"></div>
     <script src="script.js"></script>
 </body>
