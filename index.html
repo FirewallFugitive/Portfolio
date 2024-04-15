@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio web advanced</title>
+    <title>home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Tasklist</h1>
-    <form id="taskForm" onsubmit="validateForm(); return false">
+    <h1>Portfolio</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tasks.html">Tasks</a></li>
+            <li><a href="api.html">Api</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+    </nav>
+    <form id="taskForm" onsubmit="validateForm(showTasks); return false">
         <label id="namelbl">task name:</label>
         <input type="text" name="task" id="taskInput">
         <br>
@@ -28,5 +37,6 @@
     </form>
     <div id="tasksDiv"></div>
     <script src="script.js"></script>
+</body>
 </body>
 </html>
