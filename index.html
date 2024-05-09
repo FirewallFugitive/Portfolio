@@ -13,11 +13,10 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="tasks.html">Tasks</a></li>
             <li><a href="api.html">Api</a></li>
-            <li><a href="settings.html">Settings</a></li>
         </ul>
     </nav>
     <form id="taskForm" onsubmit="validateForm(showTasks); return false">
-        <label id="namelbl">task name:</label>
+        <label id="namelbl">Task name:</label>
         <input type="text" name="task" id="taskInput">
         <br>
         <input type="radio" id="personalRadio" name="taskType" value="personal">
@@ -25,18 +24,20 @@
         <input type="radio" id="workRadio" name="taskType" value="work">
         <label for="work">Work</label>
         <br>
-        <label id="durationlbl">task duration:</label>
+        <label id="durationlbl">Task duration:</label>
         <br>
-        <label id="hourlbl">hour(s):</label>
+        <label id="hourlbl">Hour(s):</label>
         <input type="number" id="hourInput" min="0">
-        <label id="minlbl">minute(s):</label>
+        <label id="minlbl">Minute(s):</label>
         <input type="number" id="minInput" min="0" max="59">
         <br>
         <input type="submit" value="Submit">
-        <button id="btn2">console</button>
+        <button id="btn2">Total duration</button>
     </form>
     <div id="tasksDiv"></div>
+    <footer id="footer"></footer>
     <script src="script.js"></script>
+    <script src="footer.js"></script>
 </body>
 </body>
 </html>

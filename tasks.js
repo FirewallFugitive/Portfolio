@@ -1,16 +1,15 @@
-// Get the storage button element
 const storageButton = document.getElementById('storage');
 
-// Add a click event listener to the storage button
 storageButton.addEventListener('click', () => {
-    // Retrieve the tasks from local storage
     const tasks = JSON.parse(localStorage.getItem('tasks'));
+    const taskList = document.getElementById('taskList');
 
-    // Check if there are tasks in local storage
     if (tasks && tasks.length > 0) {
-        // Display the tasks
+        taskList.innerHTML = '';
         tasks.forEach(task => {
-            console.log(task); // Replace this with your own logic to display the tasks
+            const { name, categorie, duration } = task;
+            const taskInfo = `${name}, ${categorie}, ${duration}`;
+            taskList.innerHTML += `<li>${taskInfo}</li>`;
         });
     } else {
         console.log('No tasks found in local storage');

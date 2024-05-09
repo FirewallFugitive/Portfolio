@@ -1,7 +1,3 @@
-(()=>{
-    const creater = "Lucas Moons";
-    console.log(`${creater} = de creater van dit portfolio`);
-})();
 
 'use strict'
 let tasks = [];
@@ -29,7 +25,7 @@ function validateForm(callback) {
             duration: document.getElementById("hourInput").value + ":" +document.getElementById("minInput").value
         }
         let {name,categorie,duration} = task;
-        tasks.push(task)
+        tasks = [...tasks, task];
         saveTasksToLocalStorage();
         callback();
     }
@@ -47,7 +43,7 @@ function totalDuration(){
         const timeArray = time.split(":");
         total += Duration(parseInt(timeArray[0]), parseInt(timeArray[1]));
     });
-    console.log(total + ' minuten');
+    window.alert(total + ' minuten');
 }
 function saveTasksToLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -55,7 +51,8 @@ function saveTasksToLocalStorage() {
 function showTasks() {
     let tasksDiv = document.getElementById("tasksDiv");
     tasksDiv.innerHTML = '';
-    tasks.forEach(task => {
+    let tasksCopy = [...tasks];
+    tasksCopy.forEach(task => {
         let p = document.createElement("p");
         p.innerHTML = `- ${task.name} Categorie: ${task.categorie} Duration ${task.duration}`;
         tasksDiv.appendChild(p);
