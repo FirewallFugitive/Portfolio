@@ -1,6 +1,7 @@
-h1{
+h1 {
     text-align: center;
 }
+
 nav {
     color: black;
     display: flex;
@@ -9,29 +10,72 @@ nav {
     justify-content: center;
     width: 100%;
 }
+
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
 }
+
 nav ul li {
     margin-right: 10px;
 }
+
 nav ul li a {
     color: black;
     text-decoration: none;
 }
+
 nav ul li a:hover {
     text-decoration: underline;
 }
-img{
+
+img {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
-img.loaded{
+
+img.loaded {
     opacity: 1;
 }
-#recipe{
+
+#recipe {
     text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
 }

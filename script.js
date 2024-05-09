@@ -10,9 +10,11 @@ let name;
 let categorie;
 let duration;
 
-btn2.addEventListener('click',function(){
+btn2.addEventListener('click', function(event) {
+    event.preventDefault();
     totalDuration();
-})
+});
+
 
 function validateForm(callback) {
     let x = document.forms["taskForm"]["taskInput"].value;
@@ -39,13 +41,13 @@ let Duration = (h,m) => {
 }
 
 function totalDuration(){
-    let total;
+    let total = 0;
     tasks.forEach(task => {
         let time = task.duration; 
         const timeArray = time.split(":");
         total += Duration(parseInt(timeArray[0]), parseInt(timeArray[1]));
     });
-    console.log(total);
+    console.log(total + ' minuten');
 }
 function saveTasksToLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
