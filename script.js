@@ -1,15 +1,15 @@
 
 'use strict'
 let tasks = [];
-let button = document.getElementById("taskbtn")
+let button = document.getElementById("taskbtn");
 let name;
 let categorie;
 let duration;
 
-btn2.addEventListener('click', function(event) {
-    event.preventDefault();
-    totalDuration();
-});
+    btn2.addEventListener('click', function(event) {
+        event.preventDefault();
+        totalDuration();
+    });
 
 
 function validateForm(callback) {
