@@ -39,7 +39,6 @@ nav ul li a:hover {
 
 img {
     max-height: 350px;
-    margin-bottom: 30px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
