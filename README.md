@@ -1,92 +1,21 @@
 # Portfolio
-Portfolio web advanced
-- Elementen selecteren:
-```
-let button = document.getElementById("taskbtn");
-name: document.getElementById("taskInput").value,
-categorie: document.querySelector("input[name='taskType']:checked").value,
-duration: document.getElementById("hourInput").value + ":" +document.getElementById("minInput").value
-let tasksDiv = document.getElementById("tasksDiv");
-```
-- Elementen manipuleren:
-```
-tasksCopy.forEach(task => {
-        let p = document.createElement("p");
-        p.innerHTML = `- ${task.name} Categorie: ${task.categorie} Duration ${task.duration}`;
-        tasksDiv.appendChild(p);
-});
-```
+
 - Event aan element koppelen
+
+event click gekoppeld aan btn2 zodat de totalDuration wordt berekend.
 ```
 btn2.addEventListener('click', function(event) {
     event.preventDefault();
     totalDuration();
 });
 ```
-- Formulier valideren
-```
-function validateForm(callback) {
-    let x = document.forms["taskForm"]["taskInput"].value;
-    if (x == "") {
-      alert("Name must be filled out");
-      return false;
-    }
-    else{
-        let task = {
-            name: document.getElementById("taskInput").value,
-            categorie: document.querySelector("input[name='taskType']:checked").value,
-            duration: document.getElementById("hourInput").value + ":" +document.getElementById("minInput").value
-        }
-        let {name,categorie,duration} = task;
-        tasks = [...tasks, task];
-        saveTasksToLocalStorage();
-        callback();
-    }
-}
-```
-- Gebruiken van een constante
-```
-(() => {
-    const creater = "Lucas Moons";
-    const footer = document.getElementById("footer");
-    footer.innerHTML = `Portfolio van ${creater}`;
-})();
-```
-- Gebruiken template literals
-```
-footer.innerHTML = `Portfolio van ${creater}`;
-```
-- Destructuring
-```
-let task = {
-            name: document.getElementById("taskInput").value,
-            categorie: document.querySelector("input[name='taskType']:checked").value,
-            duration: document.getElementById("hourInput").value + ":" +document.getElementById("minInput").value
-}
-let {name,categorie,duration} = task;
-```
-- Spread and Rest operator
-```
-tasks = [...tasks, task];
+- Formulier valideren, callback, element selecteren, spread operator, destructuring
 
-let tasksCopy = [...tasks];
+Voor het formulier te valideren heb ik hiervoor een callback fucntie aangemaakt validateForm dat wordt aangeroepen bij onsubmit en de method showTasks meegeeft voor de callback. Elementen selecteren word gedaan voor de info van de task te kunnen gaan ophalen (naam, categorie en duration).Spread operator word gebruikt om task toe te voegen aan array met andere taks. 
+Destructuring heb ik gebruik voor de values van naam, categorie en duration in het object task.
 ```
-- Iteration over een array
+<form id="taskForm" onsubmit="validateForm(showTasks); return false">
 ```
-tasks.forEach(task => {
-            const { name, categorie, duration } = task;
-            const taskInfo = `${name}, ${categorie}, ${duration}`;
-            taskList.innerHTML += `<li>${taskInfo}</li>`;
-});
-```
-- Arrow function
-```
-let Duration = (h,m) => {
-    let result = (h*60)+m;
-    return result;
-}
-```
-- Callback function
 ```
 function validateForm(callback) {
     let x = document.forms["taskForm"]["taskInput"].value;
@@ -105,6 +34,22 @@ function validateForm(callback) {
         saveTasksToLocalStorage();
         callback();
     }
+}
+```
+- Rest operator, iteration over een array, arrow function
+
+De rest operator word gebruikt voor het aanmaken van een copy van tasks.
+De iteration over een array is de for each waarbij voor elke task in tasksCopy een p element wordt aangemaakt met de info van deze task. Bij de iteration wordt ook gebruik gemaakt van een arrow function.
+```
+function showTasks() {
+    let tasksDiv = document.getElementById("tasksDiv");
+    tasksDiv.innerHTML = '';
+    let tasksCopy = [...tasks];
+    tasksCopy.forEach(task => {
+        let p = document.createElement("p");
+        p.innerHTML = `- ${task.name} Categorie: ${task.categorie} Duration ${task.duration}`;
+        tasksDiv.appendChild(p);
+    });
 }
 ```
 - Promise, async, await, fetch
@@ -135,7 +80,9 @@ fetchRecipes()
             console.error('Error fetching recipes:', error);
         });
 ```
-- Self executing function
+- Self executing function, template literal, gebruik constante, manipuleren element
+
+Hier heb ik gebruik gemaakt van een self executing function om op elke pagina mijn footer aan te passen. Hierbij heb ik ook gebruik gemaakt van een constante en template literals om deze constante te gebruiken in de string voor mijn footer.
 ```
 (() => {
     const creater = "Lucas Moons";
@@ -170,6 +117,7 @@ storageButton.addEventListener('click', () => {
 - Basis CSS animatie
 ```
 img {
+    max-height: 350px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
