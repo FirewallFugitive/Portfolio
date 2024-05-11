@@ -1,8 +1,8 @@
 # Portfolio
-
+## Uitleg
 - Event aan element koppelen
 
-event click gekoppeld aan btn2 zodat de totalDuration wordt berekend.
+Event click gekoppeld aan btn2 zodat de totalDuration wordt berekend.
 ```
 btn2.addEventListener('click', function(event) {
     event.preventDefault();
@@ -11,7 +11,7 @@ btn2.addEventListener('click', function(event) {
 ```
 - Formulier valideren, callback, element selecteren, spread operator, destructuring
 
-Voor het formulier te valideren heb ik hiervoor een callback fucntie aangemaakt validateForm dat wordt aangeroepen bij onsubmit en de method showTasks meegeeft voor de callback. Elementen selecteren word gedaan voor de info van de task te kunnen gaan ophalen (naam, categorie en duration).Spread operator word gebruikt om task toe te voegen aan array met andere taks. 
+Om het formulier te valideren, heb ik een callback-functie genaamd validateForm gemaakt, die wordt opgeroepen bij onsubmit en showTasks als methode meekrijgt voor de callback. Elementen selecteren word gedaan voor de info van de task te kunnen gaan ophalen (naam, categorie en duration).Spread operator word gebruikt om task toe te voegen aan array met andere taks. 
 Destructuring heb ik gebruik voor de values van naam, categorie en duration in het object task.
 ```
 <form id="taskForm" onsubmit="validateForm(showTasks); return false">
@@ -39,7 +39,7 @@ function validateForm(callback) {
 - Rest operator, iteration over een array, arrow function
 
 De rest operator word gebruikt voor het aanmaken van een copy van tasks.
-De iteration over een array is de for each waarbij voor elke task in tasksCopy een p element wordt aangemaakt met de info van deze task. Bij de iteration wordt ook gebruik gemaakt van een arrow function.
+Als iteration over een array heb ik gerbuik gemaakt van een for each waarbij voor elke task in tasksCopy een p element wordt aangemaakt met de info van deze task. Bij de iteration wordt ook gebruik gemaakt van een arrow function.
 ```
 function showTasks() {
     let tasksDiv = document.getElementById("tasksDiv");
@@ -53,6 +53,8 @@ function showTasks() {
 }
 ```
 - Promise, async, await, fetch
+
+Ik heb gebruik gemaakt van een async functie fetchRecipes wat ervoor zorgt dat ik ook een promise terug krijg. Await gebruikte ik om te wachten op de fetch en dan nog eens bij data omdat de werkelijke data nog niet in de response zit.
 ```
 async function fetchRecipes() {
     const response = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${APIkey}&number=1`);
@@ -61,6 +63,8 @@ async function fetchRecipes() {
 }
 ```
 - Consumer methods
+
+In fetchRecipes heb ik de consumer methods .then en .catch gebruikt.
 ```
 fetchRecipes()
         .then(recipes => {
@@ -91,6 +95,8 @@ Hier heb ik gebruik gemaakt van een self executing function om op elke pagina mi
 })();
 ```
 - JSON manipuleren en weergeven, gerbuik local storage
+
+In de functie saveTaskToLocalStorage worden de tasks in de local storage opgeslagen als JSON (waardoor er dus ook aan JSON manipulatie wordt gedaan. Vervolgens worden deze tasks terug uit local storage gehaald en weergegeven wanneer er op de knop storageButton wordt geklikt.
 ```
 function saveTasksToLocalStorage() {
     localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -115,6 +121,8 @@ storageButton.addEventListener('click', () => {
 });
 ```
 - Basis CSS animatie
+
+Als basis CSS animatie heb ik ervoor gezorgd dat de afbeelding langzaam aan tevoorschijn komt in plaats van dat het er direct staat.
 ```
 img {
     max-height: 350px;
@@ -127,6 +135,8 @@ img.loaded {
 }
 ```
 - Gebruik flexbox of CSS grid
+
+Ik heb gebruik gemaakt op onder andere mijn form zodat de verschillende items hierin onder elkaar komen (column).
 ```
 form {
     display: flex;
@@ -136,6 +146,18 @@ form {
     margin: 0 auto;
 }
 ```
-
+## Resources
+https://www.w3schools.com/js/js_validation.asp
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+https://www.w3schools.com/Js/js_arrow_function.asp
+https://www.w3schools.com/js/js_callback.asp
+https://www.w3schools.com/JS/js_array_iteration.asp
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+https://www.w3schools.com/jsref/prop_win_localstorage.asp
+https://www.w3schools.com/js/js_json.asp
+https://www.w3schools.com/js/js_async.asp
+https://www.geeksforgeeks.org/what-is-the-purpose-of-self-executing-function-in-javascript/
+https://www.freecodecamp.org/news/javascript-rest-vs-spread-operators/
 
 
