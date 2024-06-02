@@ -159,6 +159,5 @@ https://www.w3schools.com/js/js_json.asp
 https://www.w3schools.com/js/js_async.asp
 https://www.geeksforgeeks.org/what-is-the-purpose-of-self-executing-function-in-javascript/
 https://www.freecodecamp.org/news/javascript-rest-vs-spread-operators/
-https://chat.openai.com
 
 
